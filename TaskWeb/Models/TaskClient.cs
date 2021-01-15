@@ -7,7 +7,7 @@ namespace TaskWeb.Models
 {
     public class TaskClient
     {
-        private string Base_URL = "http://localhost:30110/api/";
+        private string Base_URL = "https://localhost:44360/api/";       
 
         public IEnumerable<TaskModel> FindAll()
         {
@@ -16,7 +16,7 @@ namespace TaskWeb.Models
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(Base_URL);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.GetAsync("dhtasks").Result;
+                HttpResponseMessage response = client.GetAsync("dhtasks/").Result;
 
                 if (response.IsSuccessStatusCode)
                     return response.Content.ReadAsAsync<IEnumerable<TaskModel>>().Result;
@@ -52,7 +52,7 @@ namespace TaskWeb.Models
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(Base_URL);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.PostAsJsonAsync("dhtasks/", task).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("dhtasks/CreateTask", task).Result;
                 return response.IsSuccessStatusCode;
             }
             catch

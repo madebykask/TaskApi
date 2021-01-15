@@ -64,22 +64,30 @@ namespace TaskApi.Controllers
 
         // POST: api/DHTask
         [ResponseType(typeof(DHTask))]
-        public IHttpActionResult PostCustomer(DHTask task)
+        public IHttpActionResult CreateTask(DHTask task)
         {
+            var koll = task;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.DHTasks.Add(task);
-            db.SaveChanges();
+            try
+            {
+                db.DHTasks.Add(task);
+                db.SaveChanges();
+            }
+            catch(Exception e)
+            {
+                string error = e.Message;
+            }
+            
 
             return CreatedAtRoute("DefaultApi", new { id = task.TaskId }, task);
         }
 
-        // DELETE: api/DHTask/1
+        // DELETE: api/DHTask/id
         [ResponseType(typeof(DHTask))]
-        public IHttpActionResult DeleteCustomer(int id)
+        public IHttpActionResult DeleteTask(int id)
         {
             DHTask task = db.DHTasks.Find(id);
             if (task == null)
@@ -93,13 +101,5 @@ namespace TaskApi.Controllers
             return Ok(task);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

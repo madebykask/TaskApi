@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Kattas Todo";
+}
+
+<h2>ToDo</h2>
+    <div align="center">
+        <a href="@Url.Action("Create","TaskModel")"> Lägg till ToDo </a> <br /> <br />
+        <table cellpadding="2" class="table" cellspacing="2" border="1">
+            <tr class="btn-primary">
+                <th> Todo </th>
+                <th> Avklarat </th>
+                <th> Redigera </th>
+            </tr>
+            @foreach (var Task in ViewBag.listTasks)
+            {
+                <tr class="btn-success">
+                    <td>@Task.Task </td>
+                    <td>@Task.Completed </td>
+                    <td>
+                        <a onclick="return confirm('Vill du ta bort?')" href="@Url.Action("Delete","TaskModel",new {id= Task.TaskId})">Ta bort</a> || <a href="@Url.Action("Edit","TaskModel",new { id = Task.TaskId })">Redigera</a>
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </div>
+
