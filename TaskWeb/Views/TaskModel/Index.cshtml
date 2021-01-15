@@ -16,7 +16,14 @@
             {
                 <tr class="btn-success">
                     <td>@Task.Task </td>
-                    <td>@Task.Completed </td>
+                        @if(Task.Completed == true) 
+                        {
+                            <td>Japp</td>
+                        }
+                        else
+                        {
+                            <td>Näpp</td>
+                        }
                     <td>
                         <a onclick="return confirm('Vill du ta bort?')" href="@Url.Action("Delete","TaskModel",new {id= Task.TaskId})">Ta bort</a> || <a href="@Url.Action("Edit","TaskModel",new { id = Task.TaskId })">Redigera</a>
                     </td>
