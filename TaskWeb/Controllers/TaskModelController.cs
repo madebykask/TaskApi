@@ -10,7 +10,6 @@ namespace TaskWeb.Controllers
         {
             TaskClient TC = new TaskClient();
             ViewBag.listTasks = TC.FindAll();
-
             return View();
         }
         [HttpGet]

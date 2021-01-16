@@ -2,19 +2,19 @@
 @model TaskWeb.ViewModel.TaskViewModel
 @{ViewBag.Title = "Create";
 }
-
+    
 <h2> Lägg till ny ToDo </h2>
 <div align="center">
-    @using (Html.BeginForm("create", "TaskModel", FormMethod.Post))
+    @using (Html.BeginForm("Create", "TaskModel", FormMethod.Post))
     {
         <table class="table">
             <tr>
-                <td>@Html.LabelFor(model => model.Task) </td>
+                <td>ToDo </td>
                 <td>@Html.TextBoxFor(model => model.Task) </td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Save" /></td>
+                <td><input type="submit" value="Spara" /></td>
             </tr>
         </table>
     }

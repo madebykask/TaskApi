@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Configuration;
 
 namespace TaskWeb.Models
 {
     public class TaskClient
     {
-        private string Base_URL = "https://localhost:44360/api/";       
+        private string Base_URL = ConfigurationSettings.AppSettings["ApiUrl"];  
 
         public IEnumerable<TaskModel> FindAll()
         {

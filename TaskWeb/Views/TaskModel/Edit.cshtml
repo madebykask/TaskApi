@@ -1,0 +1,24 @@
+﻿
+@model TaskWeb.ViewModel.TaskViewModel
+@{ ViewBag.Title = "Redigera Kattas ToDo";}
+<h2> Redigera ToDo </h2>
+    <div align="center" width="500px">
+        @using (Html.BeginForm("Edit", "TaskModel", FormMethod.Post))
+        {
+            <table class="table" width="400px" cellpadding="20">
+                <tr class="btn-default">
+                    <td>Todo </td>
+                    <td> @Html.TextBoxFor(model => model.Task.Task) </td>
+                </tr>
+                <tr>
+                    <td> Avklarad </td>
+                    <td> @Html.CheckBoxFor(model => model.Task.Completed) </td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td> <input class="btn-success" type="submit" value="Spara" /> <a class="bg-info" href="@Url.Action("Index","")"> Tillbaka </a> @Html.HiddenFor(model => model.Task.TaskId) </td>
+                </tr>
+            </table>
+        }
+    </div>
+
