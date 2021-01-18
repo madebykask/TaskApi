@@ -3,6 +3,7 @@
 Först måste man skapa en db i sql-server (localhost):
 
 1. Kolla så den inte finns redan, i så fall droppa den:
+
 USE master
 GO
 
