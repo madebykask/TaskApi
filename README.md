@@ -36,3 +36,8 @@ insert into [DHTest].[dbo].[DHTasks]
 (Task) values ('Hämta Maxi-påse')
 insert into [DHTest].[dbo].[DHTasks]
 (Task) values ('Hämta ved')
+
+
+Sedan bygga solutionen, se till så att både TaskApi ochTaskWeb startas upp. 
+Eventuellt kolla så alla Nuget-paket finns.
+Sedan borde det funka :)
