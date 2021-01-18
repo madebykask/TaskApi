@@ -30,10 +30,13 @@ CREATE TABLE [DHTasks]
 
 insert into [DHTest].[dbo].[DHTasks]
 (Task) values ('Bli frisk från covid')
+
 insert into [DHTest].[dbo].[DHTasks]
 (Task) values ('Beställa Maxi-påse')
+
 insert into [DHTest].[dbo].[DHTasks]
 (Task) values ('Hämta Maxi-påse')
+
 insert into [DHTest].[dbo].[DHTasks]
 (Task) values ('Hämta ved')
 
